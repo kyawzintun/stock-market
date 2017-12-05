@@ -5,7 +5,8 @@ import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css'
 
-const ws = new WebSocket(`wss://https://kzt-stock-market.herokuapp.com/`);
+const HOST = location.origin.replace(/^http/, 'ws')
+const ws = new WebSocket(HOST);
 
 function connetWebSocket(cb) {
   console.log('hello hello');
