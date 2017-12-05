@@ -6,6 +6,7 @@ const express = require("express"),
       http = require('http'),
       storage = require('node-persist'),
       cors = require("cors"),
+      path = require('path'),
       bodyParser = require('body-parser'),
       yahooFinance = require('yahoo-finance'),
 	    port = process.env.PORT || 5000;
@@ -17,6 +18,7 @@ var CLIENTS=[];
 app.use(cors());
 app.use(bodyParser());
 storage.initSync();
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 wss.on('connection', (ws) => {
     ws.on('message', (message) => {
@@ -142,6 +144,10 @@ function getDate(y) {
 function isLessThanTen(value) {
   return value < 10 ? '0'+value : value;
 }
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname+'/client/build/index.html'));
+});
 
 server.listen(port, _ => {
   console.log(`App is running on port ${port}`);
