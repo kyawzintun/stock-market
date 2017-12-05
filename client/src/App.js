@@ -5,8 +5,7 @@ import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css'
 
-const baseUrl = process.env.REACT_APP_API_URL;
-const ws = new WebSocket(`ws://localhost:5000`);
+const ws = new WebSocket(`ws://kzt-stock-market.herokuapp.com/`);
 
 function connetWebSocket(cb) {
   console.log('hello hello');
