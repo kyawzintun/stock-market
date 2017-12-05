@@ -5,7 +5,7 @@ import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css'
 
-const HOST = location.origin.replace(/^http/, 'ws')
+const HOST = window.location.origin.replace(/^http/, 'ws')
 const ws = new WebSocket(HOST);
 
 function connetWebSocket(cb) {
