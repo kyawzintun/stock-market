@@ -16,7 +16,8 @@ const wss = new WebSocket.Server({ server });
 var CLIENTS=[];
 
 app.use(cors());
-app.use(bodyParser());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 storage.initSync();
 app.use(express.static(path.join(__dirname, 'client/build')));
 
@@ -86,7 +87,8 @@ app.put('/stock', (req, res) => {
   stocks()
   .then((result) => {
     let codes = [];
-    codes = storage.getItemSync('codes');
+    codes = storage.getItemSync('codes') ? storage.getItemSync('codes') : [];
+    console.log('codes ', codes);
     let index = codes.indexOf(code);
     if(index === -1) {
       codes.push(code)
@@ -98,6 +100,7 @@ app.put('/stock', (req, res) => {
     res.status(200).send(storage.getItemSync('codes'));
   })
   .catch((err) => {
+    console.log('wtf ', err);
     res.status(404).json({"code":"Invalid Code"});
   });
 });
