@@ -1,0 +1,78 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 170px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.panel-wrapper {
+  text-align: left;
+}
+
+.panel-wrapper .panel-body { 
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.panel-wrapper .panel-body {
+  font-size: 14px;
+  color: #A0A0A2;
+}
+
+.code-panel {
+  min-height: 125px !important;
+}
+
+#add-stock-code {
+  cursor: pointer;
+  color: #fff;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background: #479C48;
+  width: 64px;
+  height: 35px;
+}
+
+.loading-txt {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.input-group {
+  width: 100% !important;
+}
+
+.stock-input {
+  width: 73% !important;
+}
+
+.invalid-code {
+  color: red;
+}
+
+.highcharts-credits {
+  display: none !important;
+}
+
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
