@@ -13,7 +13,6 @@ const express = require("express"),
 
 const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
-var CLIENTS=[];
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -24,7 +23,6 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 wss.on('connection', (ws) => {
     ws.on('message', (message) => {
         console.log('someone connected ', message);
-        CLIENTS.push(ws);
         let symbols = storage.getItemSync('codes');
         if(symbols && symbols.length) {
           const stocks = async () => {
@@ -60,7 +58,7 @@ wss.on('connection', (ws) => {
                   historical: hisArr,
                   quotes: quoArr
                 };
-                sendAll(JSON.stringify(stockObj));
+                sendAll(JSON.stringify(stockObj), wss);
               }
             }
           })
@@ -105,10 +103,11 @@ app.put('/stock', (req, res) => {
   });
 });
 
-function sendAll (stocks) {
-  for (let i=0; i<CLIENTS.length; i++) {
-      CLIENTS[i].send(stocks);
-  }
+function sendAll (stocks, ws) {
+  console.log(ws.clients.size, 'active connnected users');
+  ws.clients.forEach(function(client) {
+     client.send(stocks);
+  });
 }
 
 function getQuotes(symbols) {

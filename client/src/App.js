@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 
 const HOST = window.location.origin.replace(/^http/, 'ws')
 const ws = new WebSocket(HOST);
+// const ws = new WebSocket('ws://localhost:5000/');
 
 function connetWebSocket(cb) {
   console.log('hello hello');
