@@ -1,4 +1,4 @@
-# Free Code Camp - Stock Market
+# Free Code Camp - Realtime Stock Market
 
 ## Getting started
 
@@ -9,7 +9,17 @@ $ npm install
 $ npm start
 ```
 
-App should now be running on [localhost:3000](http://localhost:3000/).
+Api server should now be running on [localhost:5000](http://localhost:5000/).
 
+You need to `install npm` for React App.
 
-*[Demo](https://kyawzintun.github.io/stock-market)*
+Go to `client` folder
+
+```
+$ npm install
+$ npm start
+```
+
+React App should now be running on [localhost:3000](http://localhost:3000/).
+
+*[Demo](https://kzt-stock-market.herokuapp.com)*
