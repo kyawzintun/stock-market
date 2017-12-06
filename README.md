@@ -11,7 +11,7 @@ $ npm start
 
 Api server should now be running on [localhost:5000](http://localhost:5000/).
 
-You need to `install npm` for React App.
+You also need to `install npm` for React App.
 
 Go to `client` folder
 
